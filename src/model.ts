@@ -1,6 +1,6 @@
 export type Category = {
   id: number;
-  attributes: Attribute[];
+  attributes: Attribute;
 };
 export type Attribute = {
   name: string;

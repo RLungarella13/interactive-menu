@@ -1,33 +1,32 @@
 <template>
-  <sideBarMenu @categoryChosen="printCategory" />
+  <SideBarMenu :categories="categories" />
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 import SideBarMenu from "./components/SideBarMenu.vue";
+import { getMenuCategories } from "./api.services";
 
 export default defineComponent({
   name: "App",
   components: { SideBarMenu },
   setup() {
-    return {};
-  },
-  methods: {
-    printCategory(category: string) {
-      console.log(category)
-    },
+    const categories = ref();
+    onMounted(() => {
+      getMenuCategories().then((response) => {
+        categories.value = response;
+      });
+    });
+
+    return {categories};
   },
 });
 </script>
 
 <style lang="scss">
 #app {
-  color: $white;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Times New Roman", Times, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

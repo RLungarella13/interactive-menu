@@ -1,0 +1,45 @@
+/* SCSS FONT SIZES */
+$x-small: 0,5rem;
+$small: 0,75rem;
+$medium: 1rem;
+$large: 1.25rem;
+$x-large: 1.5rem; 
+$xx-large: 3rem;
+
+/* SCSS OTHER DIMENSIONS */
+$border-radius: 2px;
+
+/* SCSS HEX */
+$rich-black: #04151fff;
+$dark-slate-gray: #183a37ff;
+$wheat: #efd6acff;
+$mahogany: #c44900ff;
+$dark-purple: #432534ff;
+$white: #ffffff;
+
+/* SCSS HSL */
+$rich-black: hsla(202, 77%, 7%, 1);
+$dark-slate-gray: hsla(175, 41%, 16%, 1);
+$wheat: hsla(38, 68%, 81%, 1);
+$mahogany: hsla(22, 100%, 38%, 1);
+$dark-purple: hsla(330, 29%, 20%, 1);
+
+/* SCSS RGB */
+$rich-black: rgba(4, 21, 31, 1);
+$dark-slate-gray: rgba(24, 58, 55, 1);
+$wheat: rgba(239, 214, 172, 1);
+$mahogany: rgba(196, 73, 0, 1);
+$dark-purple: rgba(67, 37, 52, 1);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #04151fff, #183a37ff, #efd6acff, #c44900ff, #432534ff);
+$gradient-right: linear-gradient(90deg, #04151fff, #183a37ff, #efd6acff, #c44900ff, #432534ff);
+$gradient-bottom: linear-gradient(180deg, #04151fff, #183a37ff, #efd6acff, #c44900ff, #432534ff);
+$gradient-left: linear-gradient(270deg, #04151fff, #183a37ff, #efd6acff, #c44900ff, #432534ff);
+$gradient-top-right: linear-gradient(45deg, #04151fff, #183a37ff, #efd6acff, #c44900ff, #432534ff);
+$gradient-bottom-right: linear-gradient(135deg, #04151fff, #183a37ff, #efd6acff, #c44900ff, #432534ff);
+$gradient-top-left: linear-gradient(225deg, #04151fff, #183a37ff, #efd6acff, #c44900ff, #432534ff);
+$gradient-bottom-left: linear-gradient(315deg, #04151fff, #183a37ff, #efd6acff, #c44900ff, #432534ff);
+$gradient-radial: radial-gradient(#04151fff, #183a37ff, #efd6acff, #c44900ff, #432534ff);
+
+$gradient-left-to-right: linear-gradient(to right, #04151fff, #183a37ff);
