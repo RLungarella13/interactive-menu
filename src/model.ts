@@ -9,6 +9,16 @@ export type Attribute = {
   publishedAt: string;
   sub_categories?: {
     data: Category[];
-  }
+  };
 };
-
+export type Product = {
+  attributes: {
+    createdAt: string;
+    description: string;
+    name: string;
+    price: string;
+    publishedAt: string;
+    updatedAt: string;
+  };
+  id: number;
+};
