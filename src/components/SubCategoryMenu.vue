@@ -9,17 +9,17 @@
         v-for="subCategory in category.attributes.sub_categories.data"
         :key="subCategory.id"
         :subCategory="subCategory"
-        :products="products"
+        :products="products.get(subCategory.id)"
       />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, Ref } from 'vue'
-import { Category, Product } from '../model'
-import SubCategoryItem from './SubCategoryItem.vue'
-import { getMenuProduct } from '@/api.services'
+import { defineComponent, onMounted, ref, Ref, watch } from 'vue';
+import { Category, Product } from '../model';
+import SubCategoryItem from './SubCategoryItem.vue';
+import { getMenuProduct } from '@/api.services';
 
 export default defineComponent({
   props: {
@@ -31,28 +31,45 @@ export default defineComponent({
     SubCategoryItem,
   },
   setup(props) {
-    const products: Ref<Map<number, Product[]>> = ref(new Map())
+    const products: Ref<Map<number, Product[]>> = ref(new Map());
+
+    const fetchProducts = (category: Category) => {
+      if (category.attributes.sub_categories) {
+        category.attributes.sub_categories.data.forEach((subCategory) => {
+          getMenuProduct(subCategory.id)
+            .then((response) => {
+              products.value.set(
+                subCategory.id,
+                response.attributes.products.data
+              );
+            })
+            .catch((error) => console.log(error));
+        });
+      }
+    };
+
     onMounted(() => {
-      if (props.category?.id) {
-        for (let i = 0; i < 4; i++) {
-          console.log('Ma come se fa')
-          getMenuProduct(props.category?.id).then((response) => {
-            products.value.set(
-              response.data.id,
-              response.data.attributes.products.data
-            )
-            console.log(response.data)
-          })
+      if (props.category) {
+        fetchProducts(props.category);
+      }
+    });
+
+    watch(
+      () => props.category,
+      (newCategory) => {
+        if (newCategory) {
+          fetchProducts(newCategory);
         }
       }
-    })
-    return { products }
+    );
+
+    return { products };
   },
-})
+});
 </script>
 
 <style scoped>
-.subcategory-menu {
+.sub-category-menu {
   height: 100vh;
   width: 70%;
   background-size: cover;

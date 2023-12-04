@@ -4,19 +4,15 @@
       {{ subCategory?.attributes.name }}
     </div>
     <div class="sub-category-item__product">
-      <ProductItem
-      v-for="product in products?.forEach" 
-      :key="product"
-      :product="product"
-      />
+      <ProductItem v-for="product in products" :key="product.id" :product="product"/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Category, Product } from "@/model";
-import { defineComponent } from "vue";
-import ProductItem from "./ProductItem.vue";
+import { Category, Product } from '@/model';
+import { defineComponent } from 'vue';
+import ProductItem from './ProductItem.vue';
 
 export default defineComponent({
   props: {
@@ -24,11 +20,14 @@ export default defineComponent({
       type: Object as () => Category,
     },
     products: {
-      type: Object as () => Map<number, Product[]>,
+      type: Object as () => Product[],
     },
   },
-  setup() {
-    return {};
+  setup(props) {
+    function getProduct(productArray: Product[]) {
+      return productArray[0];
+    }
+    return { getProduct };
   },
   components: { ProductItem },
 });

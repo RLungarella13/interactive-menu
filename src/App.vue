@@ -3,7 +3,7 @@
     :categories="categories"
     @category-chosen="(id) => choseCategory(id)"
   />
-  <SubCategoryMenu :category="chosenCategory" />
+  <SubCategoryMenu :category="chosenCategory" :test="2" />
 </template>
 
 <script lang="ts">
@@ -26,7 +26,7 @@ export default defineComponent({
           categories.value = response.data
           chosenCategory.value = categories.value[initialCategory]
         })
-        .catch((error) => console.error('Error fetching menu categories'))
+        .catch((error) => console.error(error))
     })
     const choseCategory = (id: number) => {
       chosenCategory.value =
