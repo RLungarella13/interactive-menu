@@ -1,6 +1,8 @@
 <template>
   <div class="category-menu">
-    <div class="category-menu__title">menu</div>
+    <div class="category-menu__logo">
+      <img src="../assets/images/logo.svg" alt="">
+    </div>
     <div
       class="category-menu__items"
       v-for="category in categories"
@@ -29,4 +31,22 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.category-menu{
+  background-color: $pink;
+  color: $blue;
+  padding: 50px;
+}
+.category-menu__logo img{
+  text-align: center;
+  width: 300px;
+
+  margin-bottom: 40px;
+}
+.category-menu__title{
+  font-weight: bolder;
+  font-size: $xx-large;
+  margin-bottom: 40px;
+  text-align: center;
+}
+</style>

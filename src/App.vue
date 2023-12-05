@@ -39,7 +39,7 @@ export default defineComponent({
 
 <style lang="scss">
 #app {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;

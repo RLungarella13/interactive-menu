@@ -33,4 +33,18 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.sub-category-item {
+  border: 2px solid $blue;
+  border-radius: 10px;
+  padding: 40px;
+  text-transform: uppercase;
+  color: white
+}
+.sub-category-item__title {
+  margin-bottom: 20px;
+  font-size: $x-large;
+  font-weight: bold;
+  border-bottom: 4px solid $darker-pink;
+}
+</style>

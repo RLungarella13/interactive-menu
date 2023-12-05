@@ -1,6 +1,6 @@
 <template>
   <div class="sub-category-menu">
-    <div class="sub-category-menu__title">{{ category?.attributes.name }}</div>
+    <div class="sub-category-menu__title">{{ category?.attributes.name }}</div> 
     <div
       v-if="category?.attributes.sub_categories"
       class="sub-category-menu__items"
@@ -29,7 +29,7 @@ export default defineComponent({
   },
   components: {
     SubCategoryItem,
-  },
+},
   setup(props) {
     const products: Ref<Map<number, Product[]>> = ref(new Map());
 
@@ -68,12 +68,25 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .sub-category-menu {
-  height: 100vh;
   width: 70%;
   background-size: cover;
-  background-color: white;
+  background-color: $blue;
   padding: 50px;
+
+}
+.sub-category-menu__title {
+  font-weight: bolder;
+  font-size: $xx-large;
+  margin-bottom: 40px;
+  text-align: center;
+  color: $darker-pink;
+  padding-bottom: 20px;
+  border-bottom: 8px solid $darker-pink;
+}
+.sub-category-menu__items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 </style>
