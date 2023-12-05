@@ -1,17 +1,26 @@
 <template>
   <div v-if="subCategory" class="sub-category-item">
-    <div class="sub-category-item__title">
-      {{ subCategory?.attributes.name }}
+    <div class="sub-category-item__header" @click="toggleProductVisibility">
+      <div class="sub-category-item__header__title">
+        {{ subCategory?.attributes.name }}
+      </div>
+      <div class="sub-category-item__header__icon" :class="{ showMore: productVisibility}">
+        <img src="../assets/images/icons/expand-more.svg" alt="show more icon" />
+      </div>
     </div>
-    <div class="sub-category-item__product">
-      <ProductItem v-for="product in products" :key="product.id" :product="product"/>
+    <div class="sub-category-item__products" :class="{ showMore: productVisibility}">
+      <ProductItem
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Category, Product } from '@/model';
-import { defineComponent } from 'vue';
+import { defineComponent, Ref, ref} from 'vue';
 import ProductItem from './ProductItem.vue';
 
 export default defineComponent({
@@ -24,10 +33,12 @@ export default defineComponent({
     },
   },
   setup(props) {
-    function getProduct(productArray: Product[]) {
-      return productArray[0];
+    const productVisibility: Ref<boolean> = ref(false);
+    const toggleProductVisibility = () => {
+      productVisibility.value = !productVisibility.value;
+      console.log(productVisibility.value);
     }
-    return { getProduct };
+    return { productVisibility, toggleProductVisibility };
   },
   components: { ProductItem },
 });
@@ -35,16 +46,35 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .sub-category-item {
-  border: 2px solid $blue;
-  border-radius: 10px;
-  padding: 40px;
-  text-transform: uppercase;
-  color: white
+  padding: 10px;
 }
-.sub-category-item__title {
+.sub-category-item__header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid $darker-pink;
   margin-bottom: 20px;
+}
+.sub-category-item__header__title {
   font-size: $x-large;
   font-weight: bold;
-  border-bottom: 4px solid $darker-pink;
+  margin-bottom: 10px;
+  color: white;
+}
+.sub-category-item__header__icon img{
+  width: 20px;
+  transition: all 0.2s ease-in-out;
+}
+.sub-category-item__header__icon.showMore img{
+  transform: rotate(180deg);
+  transition: all 0.2s ease-in-out;
+}
+.sub-category-item__products {
+  display: none;
+}
+.sub-category-item__products.showMore {
+  display: block;
+  transition: all 0.5s ease-in-out;
 }
 </style>

@@ -26,17 +26,18 @@ export default defineComponent({
 .category-item {
   font-weight: bold;
   margin-bottom: 20px;
-  border: 2px solid $blue;
-  border-radius: 10px;
-  padding: 10px;
-  color: $blue;
+  padding: 20px;
+  color: $lighter-blue;
 }
+
 .category-item:hover {
   background-color: $blue;
   color: white;
 }
+
 .category-item__title {
   font-size: $large;
   text-transform: uppercase;
+  border-bottom: 2px solid $lighter-blue;
 }
 </style>

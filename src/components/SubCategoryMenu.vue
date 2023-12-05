@@ -1,16 +1,9 @@
 <template>
   <div class="sub-category-menu">
-    <div class="sub-category-menu__title">{{ category?.attributes.name }}</div> 
-    <div
-      v-if="category?.attributes.sub_categories"
-      class="sub-category-menu__items"
-    >
-      <SubCategoryItem
-        v-for="subCategory in category.attributes.sub_categories.data"
-        :key="subCategory.id"
-        :subCategory="subCategory"
-        :products="products.get(subCategory.id)"
-      />
+    <div class="sub-category-menu__title">{{ category?.attributes.name }}</div>
+    <div v-if="category?.attributes.sub_categories" class="sub-category-menu__items">
+      <SubCategoryItem v-for="subCategory in category.attributes.sub_categories.data" :key="subCategory.id"
+        :subCategory="subCategory" :products="products.get(subCategory.id)" />
     </div>
   </div>
 </template>
@@ -29,7 +22,7 @@ export default defineComponent({
   },
   components: {
     SubCategoryItem,
-},
+  },
   setup(props) {
     const products: Ref<Map<number, Product[]>> = ref(new Map());
 
@@ -70,12 +63,12 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .sub-category-menu {
-  width: 70%;
-  background-size: cover;
   background-color: $blue;
   padding: 50px;
+  flex-grow: 1;
 
 }
+
 .sub-category-menu__title {
   font-weight: bolder;
   font-size: $xx-large;
@@ -83,10 +76,16 @@ export default defineComponent({
   text-align: center;
   color: $darker-pink;
   padding-bottom: 20px;
+  text-transform: uppercase;
   border-bottom: 8px solid $darker-pink;
 }
+
 .sub-category-menu__items {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
