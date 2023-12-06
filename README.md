@@ -10,7 +10,7 @@
 ## Configuration
 Clone the repository locally
 ```
-git clone htttpsa
+git clone https://github.com/RLungarella13/interactive-menu.git 
 ```
 Install the required dependencies
 ```

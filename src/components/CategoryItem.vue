@@ -1,6 +1,6 @@
 <template>
   <div v-if="category">
-    <div class="category-item" :class="{ selected: selectedElementID === category.id}" @click="setSelectedCategoryItem(category.id)">
+    <div class="category-item" :class="{ selected: selected }" @click="$emit('changeCategoryStyle')">
       <div class="category-item__title">
         {{ category.attributes.name }}
       </div>
@@ -17,38 +17,42 @@ export default defineComponent({
     category: {
       type: Object as () => Category,
     },
+    selected: {
+      type: Boolean,
+    },
   },
   setup() {
-    const selectedElementID: Ref<number | null> = ref(0);   
-    const setSelectedCategoryItem = (id: number) => {
-
-      selectedElementID.value = id;
-    };
-    return { setSelectedCategoryItem, selectedElementID};
+    return { };
   },
 });
 </script>
 
 <style scoped lang="scss">
 .category-item {
-  font-weight: bold;
+  color: $lighter-blue;
+  background-color: $darker-pink;
   margin-bottom: 1.2rem;
   padding: 1.2rem;
-  color: $lighter-blue;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
-
-.category-item:hover {
+.category-item:hover{
   background-color: $blue;
-  color: white;
+  transform: translateX(1rem);
+  transition: 0.2s ease-in-out;
 }
 .category-item.selected {
   background-color: $blue;
   color: white;
+  transform: translateX(1rem);
+  transition: all 0.1s ease-in-out;
 }
 
 .category-item__title {
   font-size: $large;
+  font-weight: bold;
   text-transform: uppercase;
-  border-bottom: 0.1rem solid $lighter-blue;
+  text-align: center;
 }
 </style>

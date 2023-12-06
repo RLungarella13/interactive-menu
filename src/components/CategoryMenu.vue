@@ -3,10 +3,13 @@
     <div class="category-menu__logo">
       <img src="../assets/images/mascotte.svg" alt="">
     </div>
-    <div class="caption">CHOOSE A CATEGORY</div>
+    <div class="category-menu__tutorial">
+      <div>CHOOSE A CATEGORY</div>
+      <img src="../assets/images/icons/click-hand.svg" alt="">
+    </div>
     <hr />
     <div class="category-menu__items" v-for="category in categories" :key="category?.id">
-      <CategoryItem :category="category" @click="$emit('categoryChosen', category.id)" />
+      <CategoryItem :category="category" :selected="category.id === selectedCategory" @click="$emit('categoryChosen', category.id)" @changeCategoryStyle="selectCategory(category.id)"/>
     </div>
   </div>
 </template>
@@ -23,12 +26,16 @@ export default defineComponent({
     },
   },
   setup() {
+    const selectedCategory = ref();
+    const selectCategory = (id: number) => {
+      selectedCategory.value = id;
+    };
     const sideBarVisibility: Ref<boolean> = ref(false);
     const toggleShadowBarVisibility = () => {
       sideBarVisibility.value = !sideBarVisibility.value;
     };
 
-    return { toggleShadowBarVisibility, sideBarVisibility };
+    return { toggleShadowBarVisibility, sideBarVisibility, selectedCategory, selectCategory };
   },
   components: { CategoryItem },
 });
@@ -48,7 +55,7 @@ export default defineComponent({
 
 .category-menu__logo img {
   width: 12.5rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .category-menu__title {
@@ -58,9 +65,20 @@ export default defineComponent({
   text-align: center;
 }
 
-.caption {
-  text-align: center;
+.category-menu__tutorial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: 700;
   color: $lighter-blue;
+}
+.category-menu__tutorial img {
+  width: 1.2rem;
+}
+hr{
+  border: 0.1rem solid $lighter-blue;
+  border-radius: $border-radius;
+  width: 80%;
+  margin-bottom: 1rem;
 }
 </style>

@@ -13,7 +13,6 @@ import { Category } from './model'
 import CategoryMenu from './components/CategoryMenu.vue'
 import SubCategoryMenu from './components/SubCategoryMenu.vue'
 
-const initialCategory = 4
 export default defineComponent({
   name: 'App',
   components: { CategoryMenu, SubCategoryMenu },
@@ -24,7 +23,6 @@ export default defineComponent({
       getMenuCategories()
         .then((response) => {
           categories.value = response.data
-          chosenCategory.value = categories.value[initialCategory]
         })
         .catch((error) => console.error(error))
     })

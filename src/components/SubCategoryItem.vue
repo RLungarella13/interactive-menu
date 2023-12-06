@@ -55,13 +55,13 @@ export default defineComponent({
   background-color: $darker-pink;
   padding: 1.5rem 2rem;
   border-radius: $border-radius;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: $shadow;
   transition: all 0.2s ease-in-out;
 }
 
 .sub-category-item__header:hover {
   cursor: pointer;
-  box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: $deep-shadow;
   transition: all 0.2s ease-in-out;
 }
 

@@ -1,7 +1,12 @@
 <template>
   <div class="sub-category-menu">
-    <div class="sub-category-menu__title">{{ category?.attributes.name }}</div>
-    <transition-group v-if="category?.attributes.sub_categories" name="products" tag="div" class="sub-category-menu__items" appear>
+    <div v-if="category">
+      <div class="sub-category-menu__title">{{ category?.attributes.name }}</div>
+      <hr>
+    </div>
+    <div v-else class="sub-category-menu__tutorial">Choose a Category on the Left</div>
+    <transition-group v-if="category?.attributes.sub_categories" name="products" tag="div"
+      class="sub-category-menu__items" appear>
       <SubCategoryItem v-for="subCategory in category.attributes.sub_categories.data" :key="subCategory.id"
         :subCategory="subCategory" :products="products.get(subCategory.id)" />
     </transition-group>
@@ -71,17 +76,15 @@ export default defineComponent({
 .sub-category-menu__title {
   font-weight: bolder;
   font-size: $xx-large;
-  margin-bottom: 3rem;
   text-align: center;
   color: $darker-pink;
-  padding-bottom: 1.5rem;
   text-transform: uppercase;
-  border-bottom: 0.3rem solid $darker-pink;
 }
 
 .sub-category-menu__items {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
   @media (max-width: $tablet) {
     grid-template-columns: 1fr;
   }
@@ -115,8 +118,23 @@ export default defineComponent({
 .products-leave-active {
   transition: all 0.2s ease-in-out;
 }
+
 .products-move {
   transition: all 0.2s ease-in-out;
+}
+.sub-category-menu__tutorial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: $xx-large;
+  text-align: center;
+  color: $lighter-blue;
+}
+hr {
+  border: 0.2rem solid $darker-pink;
+  border-radius: $border-radius;
+  width: 80%;
 }
 </style>
 
