@@ -6,11 +6,20 @@ $lighter-blue: #277cb5 ;
 
 
 /* SCSS FONT SIZES */
+$root-font-size: 16px;
+    
 $x-small: 0,5rem;
 $small: 0,75rem;
 $medium: 1rem;
 $large: 1.25rem;
 $x-large: 1.8rem; 
 $xx-large: 3rem;
+
 /* SCSS OTHER DIMENSIONS */
-$border-radius: 2px;
+$border-radius: 0.5rem;
+
+/* MEDIA QUERIES TRESHOLDS */
+$mobile: 300px;
+$tablet: 800px;
+$desktop: 1200px;
+$large-desktop: 1800px;

@@ -1,11 +1,8 @@
 <template>
   <div style="display: flex; flex-direction: row; justify-content: space-around;">
 
-  <CategoryMenu
-    :categories="categories"
-    @category-chosen="(id) => choseCategory(id)"
-  />
-  <SubCategoryMenu :category="chosenCategory" :test="2" />
+    <CategoryMenu :categories="categories" @category-chosen="(id) => choseCategory(id)" />
+    <SubCategoryMenu :category="chosenCategory" :test="2" />
   </div>
 </template>
 

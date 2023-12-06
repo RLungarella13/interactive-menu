@@ -31,12 +31,13 @@ export default defineComponent({
 <style scoped lang="scss">
 .product-item {
   color: white;
-  margin-bottom: 10px;
+  margin-top: 1rem;
 }
 .product-item__description {
   text-transform: none;
   font-size: $medium;
   font-weight: normal;
+  text-align: justify;
 }
 .product-item__header {
   display: flex;
@@ -44,6 +45,6 @@ export default defineComponent({
   justify-content: space-between;
   font-weight: bold;
   font-size: $large;
-  margin-bottom: 5px;
+  margin-bottom: 0.3rem;
 }
 </style>

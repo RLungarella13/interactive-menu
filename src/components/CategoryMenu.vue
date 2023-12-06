@@ -35,15 +35,9 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-hr {
-  color: $lighter-blue;
-  border-style: double;
-  margin-bottom: 20px;
-}
-
 .category-menu {
   background-color: $pink;
-  padding: 40px;
+  padding: 2rem;
   box-shadow: 2px 0 5px -2px black;
   transition: 0.8s ease-in-out;
 }
@@ -53,14 +47,14 @@ hr {
 }
 
 .category-menu__logo img {
-  width: 200px;
-  margin-bottom: 40px;
+  width: 12.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .category-menu__title {
   font-weight: bolder;
   font-size: $xx-large;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
   text-align: center;
 }
 

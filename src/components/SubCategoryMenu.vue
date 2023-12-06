@@ -1,10 +1,10 @@
 <template>
   <div class="sub-category-menu">
     <div class="sub-category-menu__title">{{ category?.attributes.name }}</div>
-    <div v-if="category?.attributes.sub_categories" class="sub-category-menu__items">
+    <transition-group v-if="category?.attributes.sub_categories" name="products" tag="div" class="sub-category-menu__items" appear>
       <SubCategoryItem v-for="subCategory in category.attributes.sub_categories.data" :key="subCategory.id"
         :subCategory="subCategory" :products="products.get(subCategory.id)" />
-    </div>
+    </transition-group>
   </div>
 </template>
 
@@ -64,28 +64,59 @@ export default defineComponent({
 <style scoped lang="scss">
 .sub-category-menu {
   background-color: $blue;
-  padding: 50px;
+  padding: 3rem;
   flex-grow: 1;
-
 }
 
 .sub-category-menu__title {
   font-weight: bolder;
   font-size: $xx-large;
-  margin-bottom: 40px;
+  margin-bottom: 3rem;
   text-align: center;
   color: $darker-pink;
-  padding-bottom: 20px;
+  padding-bottom: 1.5rem;
   text-transform: uppercase;
-  border-bottom: 8px solid $darker-pink;
+  border-bottom: 0.3rem solid $darker-pink;
 }
 
 .sub-category-menu__items {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
-  @media (max-width: 1200px) {
+  @media (max-width: $tablet) {
     grid-template-columns: 1fr;
   }
 }
+
+/* Transition Animation */
+.products-enter-from {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.products-enter-to {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.products-enter-active {
+  transition: all 0.2s ease-in-out;
+}
+
+.products-leave-from {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.products-leave-to {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.products-leave-active {
+  transition: all 0.2s ease-in-out;
+}
+.products-move {
+  transition: all 0.2s ease-in-out;
+}
 </style>
+

@@ -4,23 +4,21 @@
       <div class="sub-category-item__header__title">
         {{ subCategory?.attributes.name }}
       </div>
-      <div class="sub-category-item__header__icon" :class="{ showMore: productVisibility}">
-        <img src="../assets/images/icons/expand-more.svg" alt="show more icon" />
+      <div class="sub-category-item__header__icon" :class="{ showMore: productVisibility }">
+        <img src="../assets/images/icons/expand.svg" alt="show more icon" />
       </div>
     </div>
-    <div class="sub-category-item__products" :class="{ showMore: productVisibility}">
-      <ProductItem
-        v-for="product in products"
-        :key="product.id"
-        :product="product"
-      />
-    </div>
+    <transition name="fade">
+      <div v-if="productVisibility" class="sub-category-item__products" >
+        <ProductItem v-for="product in products" :key="product.id" :product="product" />
+      </div>
+    </transition>
   </div>
 </template>
 
 <script lang="ts">
 import { Category, Product } from '@/model';
-import { defineComponent, Ref, ref} from 'vue';
+import { defineComponent, Ref, ref } from 'vue';
 import ProductItem from './ProductItem.vue';
 
 export default defineComponent({
@@ -48,33 +46,72 @@ export default defineComponent({
 .sub-category-item {
   padding: 10px;
 }
-.sub-category-item__header{
+
+.sub-category-item__header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 4px solid $darker-pink;
-  margin-bottom: 20px;
+  background-color: $darker-pink;
+  padding: 1.5rem 2rem;
+  border-radius: $border-radius;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
 }
+
+.sub-category-item__header:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.sub-category-item__header:active {
+  background-color: $pink;
+}
+
 .sub-category-item__header__title {
   font-size: $x-large;
   font-weight: bold;
-  margin-bottom: 10px;
-  color: white;
+  text-transform: uppercase;
+  color: $blue;
 }
-.sub-category-item__header__icon img{
-  width: 20px;
+
+.sub-category-item__header__icon img {
+  width: 1.5rem;
   transition: all 0.2s ease-in-out;
 }
-.sub-category-item__header__icon.showMore img{
+
+.sub-category-item__header__icon.showMore img {
   transform: rotate(180deg);
   transition: all 0.2s ease-in-out;
 }
+
 .sub-category-item__products {
-  display: none;
+  padding: 0 1.5rem;
 }
-.sub-category-item__products.showMore {
-  display: block;
-  transition: all 0.5s ease-in-out;
+
+
+.fade-enter-from{
+  transform: translateY(-100px);
+  opacity: 0;
 }
+.fate-enter-to{
+  transform: translateY(0);
+  opacity: 1;
+}
+.fade-enter-active{
+  transition: all 0.4s ease-in-out;
+}
+.fade-leave-from{
+  transform: translateY(0px);
+  opacity: 1;
+}
+.fade-leave-to{
+  transform: translateY(-100px);
+  opacity: 0;
+}
+.fade-leave-active{
+  transition: all 0.4s ease-in-out;
+}
+
 </style>

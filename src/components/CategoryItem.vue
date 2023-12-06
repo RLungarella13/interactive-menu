@@ -1,13 +1,15 @@
 <template>
-  <div class="category-item">
-    <div class="category-item__title">
-      {{ category?.attributes.name }}
+  <div v-if="category">
+    <div class="category-item" :class="{ selected: selectedElementID === category.id}" @click="setSelectedCategoryItem(category.id)">
+      <div class="category-item__title">
+        {{ category.attributes.name }}
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, Ref, ref } from 'vue';
 import { Category } from '../model';
 
 export default defineComponent({
@@ -17,7 +19,12 @@ export default defineComponent({
     },
   },
   setup() {
-    return {};
+    const selectedElementID: Ref<number | null> = ref(0);   
+    const setSelectedCategoryItem = (id: number) => {
+
+      selectedElementID.value = id;
+    };
+    return { setSelectedCategoryItem, selectedElementID};
   },
 });
 </script>
@@ -25,8 +32,8 @@ export default defineComponent({
 <style scoped lang="scss">
 .category-item {
   font-weight: bold;
-  margin-bottom: 20px;
-  padding: 20px;
+  margin-bottom: 1.2rem;
+  padding: 1.2rem;
   color: $lighter-blue;
 }
 
@@ -34,10 +41,14 @@ export default defineComponent({
   background-color: $blue;
   color: white;
 }
+.category-item.selected {
+  background-color: $blue;
+  color: white;
+}
 
 .category-item__title {
   font-size: $large;
   text-transform: uppercase;
-  border-bottom: 2px solid $lighter-blue;
+  border-bottom: 0.1rem solid $lighter-blue;
 }
 </style>
