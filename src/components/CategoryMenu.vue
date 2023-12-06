@@ -70,13 +70,13 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  color: $lighter-blue;
+  color: $darker-blue;
 }
 .category-menu__tutorial img {
   width: 1.2rem;
 }
 hr{
-  border: 0.1rem solid $lighter-blue;
+  border: 0.1rem solid $darker-blue;
   border-radius: $border-radius;
   width: 80%;
   margin-bottom: 1rem;

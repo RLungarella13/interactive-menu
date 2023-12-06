@@ -129,7 +129,7 @@ export default defineComponent({
   font-weight: 700;
   font-size: $xx-large;
   text-align: center;
-  color: $lighter-blue;
+  color: $darker-blue;
 }
 hr {
   border: 0.2rem solid $darker-pink;

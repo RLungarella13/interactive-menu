@@ -22,14 +22,14 @@ export default defineComponent({
     },
   },
   setup() {
-    return { };
+    return {};
   },
 });
 </script>
 
 <style scoped lang="scss">
 .category-item {
-  color: $lighter-blue;
+  color: $darker-blue;
   background-color: $darker-pink;
   margin-bottom: 1.2rem;
   padding: 1.2rem;
@@ -37,11 +37,13 @@ export default defineComponent({
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-.category-item:hover{
-  background-color: $blue;
+
+.category-item:hover {
   transform: translateX(1rem);
+  background-color: $lighter-blue;
   transition: 0.2s ease-in-out;
 }
+
 .category-item.selected {
   background-color: $blue;
   color: white;

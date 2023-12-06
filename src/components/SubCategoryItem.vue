@@ -44,7 +44,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .sub-category-item {
-  padding: 10px;
+  padding: 0.6rem;
 }
 
 .sub-category-item__header {
@@ -73,7 +73,7 @@ export default defineComponent({
   font-size: $x-large;
   font-weight: bold;
   text-transform: uppercase;
-  color: $blue;
+  color: $darker-blue;
 }
 
 .sub-category-item__header__icon img {
