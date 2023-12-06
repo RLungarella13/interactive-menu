@@ -11,7 +11,11 @@ export async function getMenuCategories() {
     const response = await apiClient.get(
       'https://certain-boot-69d68e2fb4.strapiapp.com/api/categories?populate=sub_categories'
     );
-    return response.data;
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error(response.status);
+    }
   } catch (error) {
     console.error(error);
   }

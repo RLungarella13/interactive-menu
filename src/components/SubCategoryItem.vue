@@ -88,30 +88,6 @@ export default defineComponent({
 
 .sub-category-item__products {
   padding: 0 1.5rem;
+  margin-bottom: 2rem;
 }
-
-
-.fade-enter-from{
-  transform: translateY(-100px);
-  opacity: 0;
-}
-.fate-enter-to{
-  transform: translateY(0);
-  opacity: 1;
-}
-.fade-enter-active{
-  transition: all 0.4s ease-in-out;
-}
-.fade-leave-from{
-  transform: translateY(0px);
-  opacity: 1;
-}
-.fade-leave-to{
-  transform: translateY(-100px);
-  opacity: 0;
-}
-.fade-leave-active{
-  transition: all 0.4s ease-in-out;
-}
-
 </style>

@@ -1,9 +1,6 @@
 <template>
-  <div style="display: flex; flex-direction: row; justify-content: space-around;">
-
-    <CategoryMenu :categories="categories" @category-chosen="(id) => choseCategory(id)" />
-    <SubCategoryMenu :category="chosenCategory" :test="2" />
-  </div>
+  <CategoryMenu :categories="categories" @category-chosen="(id) => choseCategory(id)" />
+  <SubCategoryMenu :category="chosenCategory" :test="2" />
 </template>
 
 <script lang="ts">
@@ -37,6 +34,11 @@ export default defineComponent({
 
 <style lang="scss">
 #app {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 100vh;
+
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

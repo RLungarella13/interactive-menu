@@ -34,19 +34,21 @@ export default defineComponent({
   margin-bottom: 1.2rem;
   padding: 1.2rem;
   border-radius: $border-radius;
+  border: 0.2rem solid $darker-pink;
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
 
 .category-item:hover {
   transform: translateX(1rem);
-  background-color: $lighter-blue;
+  border: 0.2rem solid $blue;
   transition: 0.2s ease-in-out;
 }
 
 .category-item.selected {
   background-color: $blue;
   color: white;
+  border: 0.2rem solid $blue;
   transform: translateX(1rem);
   transition: all 0.1s ease-in-out;
 }
