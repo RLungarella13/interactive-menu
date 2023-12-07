@@ -34,7 +34,6 @@ export default defineComponent({
     const productVisibility: Ref<boolean> = ref(false);
     const toggleProductVisibility = () => {
       productVisibility.value = !productVisibility.value;
-      console.log(productVisibility.value);
     }
     return { productVisibility, toggleProductVisibility };
   },

@@ -19,7 +19,7 @@ export default defineComponent({
     onMounted(() => {
       getMenuCategories()
         .then((response) => {
-          categories.value = response.data
+          categories.value = response.data;
         })
         .catch((error) => console.error(error))
     })
