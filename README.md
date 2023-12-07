@@ -19,7 +19,7 @@ The colors I used are tested with Adobe Color accessibility tools for a more com
 A little bit of attention went into making the page responsive to the resizing so that it can be used on smaller devices without losing it's structure.
 
 ## Code
-The project uses **Typescript** mainly for it's optional static typing. **SCSS** was instead used to create variables inside all the different components of the application.
+The project uses **Typescript** mainly for it's optional static typing. **SCSS** was instead used to create variables accessible to all the different components of the application.
 **Axios** was chosen for it's ease of use and compatibility across browsers.
 
 ## Configuration
