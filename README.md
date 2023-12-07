@@ -10,6 +10,18 @@
 </p>
 
 ---
+## Design
+The vintage and retro look was choosen due to lack of images of the products. Instead of hard-coding images of the products I thought of going with this look and to have illustration instead of images. The retro illustrations are provided by: [Octopus Design](https://oktopus.gumroad.com/?recommended_by=library). 
+
+I tried to make the application feel modern even with a retro look, with animations and reactive elements all across the application.
+The colors I used are tested with Adobe Color accessibility tools for a more comprehensible web page.
+
+A little bit of attention went into making the page responsive to the resizing so that it can be used on smaller devices without losing it's structure.
+
+## Code
+The project uses **Typescript** mainly for it's optional static typing. **SCSS** was instead used to create variables inside all the different components of the application.
+**Axios** was chosen for it's ease of use and compatibility across browsers.
+
 ## Configuration
 Clone the repository locally
 ```
@@ -27,6 +39,11 @@ And finally:
 ```
 npm run serve
 ```
+## Future Development
+- Better API error handling;
+- A more rich design;
+- More information about the restaurant;
+- Better animations;
 ---
 <p align=right>
 Software Used:<br/><br/>
